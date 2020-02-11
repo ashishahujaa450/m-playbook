@@ -1,0 +1,85 @@
+ //specefic style for consumer tabs
+ &.consumer-tabs {
+     ul.nav-tabs {
+         padding-left: 0rem;
+         justify-content: center;
+         li {
+             flex-basis: 13.5%;
+             min-width: 115px;
+             @include respond-to(med-screen-handler) {
+                 min-width: 99px;
+             }
+         }
+         .nav-item {
+             a {
+                 //  min-width: 130px;
+                 color: $black;
+                 clip-path: polygon(3% 0%, 96% 0%, 100% 100%, 0% 100%);
+                 border-top-left-radius: 15px;
+                 border-top-right-radius: 15px;
+                 font-size: 13.5px;
+                 @include respond-to(med-screen-handler) {
+                     font-size: 11px;
+                 }
+             }
+             &.shade-1 {
+                 a {
+                     background: $tab-shade1;
+                 }
+             }
+             &.shade-2 {
+                 a {
+                     background: $tab-shade2;
+                 }
+             }
+             &.shade-3 {
+                 a {
+                     background: $tab-secondary;
+                 }
+             }
+             &.shade-4 {
+                 a {
+                     background: $tab-shade4;
+                 }
+             }
+             &.shade-5 {
+                 a {
+                     background: $tab-shade5;
+                 }
+             }
+             &.shade-6 {
+                 a {
+                     background: $primary-green;
+                 }
+             }
+             &.shade-7 {
+                 a {
+                     background: $tab-shade7;
+                 }
+             }
+         }
+     }
+     .tab-content {
+         .shade-1 {
+             background: $tab-shade1;
+         }
+         .shade-2 {
+             background: $tab-shade2;
+         }
+         .shade-3 {
+             background: $tab-secondary;
+         }
+         .shade-4 {
+             background: $tab-shade4;
+         }
+         .shade-5 {
+             background: $tab-shade5;
+         }
+         .shade-6 {
+             background: $primary-green;
+         }
+         .shade-7 {
+             background: $tab-shade7;
+         }
+     }
+ }

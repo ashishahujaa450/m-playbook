@@ -1,0 +1,56 @@
+@mixin respond-to($media) {
+    // max-width: 575px
+    @if $media==handhelds {
+        @media only screen and (max-width: $for-mobile) {
+            @content;
+        }
+    }
+    //max-width: 450px
+    @else if $media==mobile {
+        @media only screen and (min-width: $micro-mobile) {
+            @content;
+        }
+    }
+    //max-width: 767px
+    @else if $media==below-ipad {
+        @media only screen and (max-width: $for-phones-landscape) {
+            @content;
+        }
+    }
+    //min-width: 575px & max-width: 1100px
+    @else if $media==medium-screens {
+        @media only screen and (min-width: $for-mobile) and (max-width: $for-medium-desktop) {
+            @content;
+        }
+    }
+    //min-width: 1100 & max-width: 1350px
+    @else if $media==med-screen-handler {
+        @media only screen and (min-width: $for-medium-desktop) and (max-width: $med-desktop) {
+            @content;
+        }
+    }
+    //min-width: 768px & max-width: 992px
+    @else if $media==med-ipad {
+        @media only screen and (min-width: $for-phones-landscape+1) and (max-width: $ipad-pro+1) {
+            @content;
+        }
+    }
+    //max-width: 1100px
+    @else if $media==below-large-screens {
+        @media only screen and (max-width: $for-medium-desktop) {
+            @content;
+        }
+    }
+    //min-width: 1100px
+    @else if $media==above-large-screens {
+        @media only screen and (min-width: $for-medium-desktop) {
+            @content;
+        }
+    }
+    //max-width: 991px
+    @else if $media==boot-ipad-pro {
+        @media only screen and (max-width: $ipad-pro) {
+            @content;
+        }
+    }
+}

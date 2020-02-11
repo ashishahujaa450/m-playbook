@@ -1,0 +1,178 @@
+//overlay bg
+.animsition-overlay-slide {
+    background: $tab-shade2;
+    z-index: 999;
+}
+
+body.primary-bg {
+    background: $index-dark-bg;
+    @include respond-to(below-ipad) {
+        background: $tab-primary;
+    }
+    &.pattern-bg-index {
+        background-image: url('#{$src}/img/merck_home_pattern.png');
+        background-repeat: no-repeat;
+        background-size: 300px;
+        background-position: top left;
+        .container-fluid {
+            @include respond-to(below-ipad) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+            .row.custom_spacing {
+                .col-6 {
+                    @include respond-to(below-ipad) {
+                        padding-left: 0;
+                        padding-right: 0;
+                    }
+                    &:first-of-type {
+                        @include respond-to(below-ipad) {
+                            padding-right: 3px;
+                        }
+                    }
+                    &:last-of-type {
+                        @include respond-to(below-ipad) {
+                            padding-left: 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .row.custom_spacing {
+        &>div {
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    }
+}
+
+.inner-content-wrapper {
+    height: 100%;
+    .block-header-section {
+        @include respond-to(boot-ipad-pro) {
+            margin-bottom: 2rem;
+        }
+        img.logo {
+            max-width: 200px;
+            @include respond-to(handhelds) {
+                max-width: 130px;
+            }
+        }
+    }
+    .block-body-section {
+        h1 {
+            font-size: 26px;
+            @include respond-to(below-ipad) {
+                font-size: 18px;
+            }
+        }
+        h2 {
+            font-size: 43px;
+            line-height: 1.1;
+            @include respond-to(below-ipad) {
+                font-size: 33px;
+            }
+        }
+        p {
+            line-height: 21px;
+            font-size: 16px;
+            @include respond-to(below-ipad) {
+                font-size: 16px;
+                font-weight: 400;
+            }
+        }
+        h5 {
+            color: rgba(114, 205, 179, 1);
+            font-size: 20px;
+            line-height: 26px;
+            @include respond-to(below-ipad) {
+                font-size: 16px;
+                line-height: 21px;
+            }
+        }
+    }
+    .card-main-block {
+        position: relative;
+        cursor: pointer;
+        &:hover {
+            .card-block-overlay {
+                height: 100%;
+                max-height: 100%;
+            }
+        }
+        .card-main-block-content {
+            img {
+                min-height: 650px;
+                height: 100vh;
+                width: 100%;
+                object-fit: cover;
+                @include respond-to(below-ipad) {
+                    max-height: 540px;
+                    min-height: 540px;
+                    object-position: top;
+                }
+                @include respond-to(handhelds) {
+                    height: auto;
+                    max-height: initial;
+                    min-height: initial;
+                }
+            }
+        }
+        .card-block-overlay {
+            background-color: rgba(0, 0, 0, .55);
+            position: absolute;
+            width: 100%;
+            max-height: 170px;
+            height: 30%;
+            min-height: 170px;
+            left: 0;
+            bottom: 0;
+            transition: .5s all ease;
+            @include respond-to(below-ipad) {
+                height: 100%;
+                max-height: 100%;
+                align-items: center;
+            }
+            .card-overlay-inner-content {
+                max-width: 220px;
+                position: absolute;
+                bottom: 0;
+                height: 170px;
+                margin-left: auto;
+                margin-right: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                @include respond-to(below-ipad) {
+                    min-width: 150px;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+                h3 {
+                    font-size: 23px;
+                    margin-bottom: 0;
+                    line-height: 1.1;
+                    @include respond-to(below-large-screens) {
+                        font-size: 20px;
+                        line-height: 1.4;
+                    }
+                    @include respond-to(below-ipad) {
+                        font-size: 16px;
+                        line-height: 20px;
+                        text-shadow: 0px 2px 5px rgba(0, 0, 0, .5);
+                    }
+                }
+                img {
+                    min-width: 30px;
+                    @include respond-to(below-ipad) {
+                        min-width: 23px;
+                        width: 23px;
+                        height: 23px;
+                    }
+                }
+            }
+        }
+    }
+}

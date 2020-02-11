@@ -1,0 +1,951 @@
+.main-page-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    @include respond-to(below-ipad) {
+        flex-direction: column;
+    }
+    .sidebar-left-section {
+        flex-basis: 30%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 30%;
+        @include respond-to(below-large-screens) {
+            width: 40%;
+            flex-basis: 40%;
+        }
+        //for mobile
+        @include respond-to(below-ipad) {
+            position: relative;
+            flex-basis: 100%;
+            width: 100%;
+        }
+    }
+    .page-right-section {
+        flex-basis: 100%;
+        width: 100%;
+        padding-left: 30%;
+        @include respond-to(below-large-screens) {
+            padding-left: 40%;
+        }
+        //for mobile
+        @include respond-to(below-ipad) {
+            padding-left: 15px;
+            padding-right: 15px;
+            position: relative;
+            top: -25px;
+            padding-bottom: 2rem;
+        }
+        //tab pane setting for scrollspy page
+        #content {
+            &>.tab-pane.card {
+                padding-top: 2rem;
+                padding-left: 4%;
+                padding-right: 4%;
+                width: 100%;
+                background: transparent;
+                margin: auto;
+                @include respond-to(below-ipad) {
+                    padding: 0;
+                    border: 0;
+                    border-bottom: 1px solid $tab-secondary;
+                }
+                &:last-of-type {
+                    @include respond-to(below-ipad) {
+                        border-bottom: 0;
+                    }
+                }
+                //accordion design settings
+                .card-header {
+                    @include respond-to(below-ipad) {
+                        background: $primary-green;
+                        border: 0;
+                        color: $primary-yellow;
+                        border-radius: 0px;
+                        padding: .75rem .25rem .75rem 1.25rem;
+                    }
+                    h5 {
+                        a {
+                            color: $primary-yellow;
+                            text-decoration: none;
+                            display: block;
+                            @include respond-to(below-ipad) {
+                                text-transform: uppercase;
+                                font-size: 16px;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                            }
+                            img {
+                                transition: .2s all ease;
+                                @include respond-to(below-ipad) {
+                                    max-width: 20px;
+                                }
+                            }
+                            &[aria-expanded="true"] {
+                                img {
+                                    @include respond-to(below-ipad) {
+                                        transform: rotate(180deg);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    &+div {
+                        &>div.card-body {
+                            @include respond-to(below-ipad) {
+                                padding-left: 0;
+                                padding-right: 0;
+                            }
+                            &.social-card_body {
+                                @include respond-to(below-large-screens) {
+                                    padding-top: 0;
+                                }
+                            }
+                        }
+                    }
+                    &.social-card_header {
+                        @include respond-to(below-large-screens) {
+                            background: transparent;
+                            color: $tab-primary;
+                            border: 0;
+                        }
+                        h5 {
+                            a {
+                                @include respond-to(below-large-screens) {
+                                    color: $tab-primary;
+                                    font-weight: bold;
+                                    justify-content: flex-start;
+                                    text-transform: uppercase;
+                                    font-size: 15px;
+                                    img {
+                                        transform: rotate(0deg) !important;
+                                        margin-right: 5px;
+                                    }
+                                    div {
+                                        width: 115px;
+                                        margin: auto;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .consumer-page {
+            #content {
+                &>.tab-pane.card {
+                    padding-left: 3%;
+                    padding-right: 1%;
+                    @include respond-to(below-ipad) {
+                        padding-left: 0;
+                        padding-right: 0;
+                    }
+                }
+            }
+        }
+        .page-inner-container {
+            max-width: 100%;
+            display: block;
+            margin: auto;
+            //tab panes seperate background style
+            @import 'healthcare_tabsbg';
+            @import 'consumer_tabsbg';
+            .tab-content {
+                &.b-1100 {
+                    @include respond-to(below-large-screens) {
+                        position: relative;
+                        top: 60px;
+                    }
+                }
+                .card.tab-pane {
+                    .card-body {
+                        .card-top-text-block {
+                            //text block modifications
+                            &.border-bot {
+                                border-bottom: 2px solid $primary-green;
+                            }
+                            &.width-controller {
+                                max-width: 630px;
+                                &.w_excess {
+                                    max-width: 650px;
+                                }
+                            }
+                            //font setting
+                            h1 {
+                                &.text-primay-green {
+                                    font-size: 40px;
+                                    font-weight: bold;
+                                    margin-bottom: 1.5rem;
+                                    @include respond-to(below-large-screens) {
+                                        font-size: 30px;
+                                    }
+                                    @include respond-to(below-ipad) {
+                                        font-size: 25px;
+                                        margin-bottom: .5rem !important;
+                                    }
+                                    &.hide_heading {
+                                        @include respond-to(below-ipad) {
+                                            display: none;
+                                        }
+                                    }
+                                }
+                            }
+                            h5 {
+                                font-size: 20px;
+                                color: rgba(102, 32, 70, 1);
+                                font-weight: bold;
+                                margin-bottom: 1rem;
+                                @include respond-to(below-ipad) {}
+                                &.text-primay-green {
+                                    font-size: 22px;
+                                    font-weight: bold;
+                                }
+                                &.w-780 {
+                                    max-width: 780px;
+                                }
+                            }
+                            p {
+                                font-size: 16px;
+                                line-height: 22px;
+                                color: $tab-primary;
+                                span.inner_para {
+                                    color: $primary-green;
+                                    font-weight: 500;
+                                }
+                            }
+                            ul,
+                            li {
+                                color: $tab-primary;
+                            }
+                        }
+                        .primary-product-heading {
+                            position: relative;
+                            text-align: center;
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                width: 100%;
+                                height: 2px;
+                                background: $primary-green;
+                                left: 0;
+                                z-index: 0;
+                            }
+                            h2 {
+                                color: $white;
+                                background: $primary-orange;
+                                display: inline-block;
+                                border-radius: 30px;
+                                font-size: 15px;
+                                padding: 0.5rem 2rem 0.6rem 2rem;
+                                margin: auto;
+                                z-index: 2;
+                                position: relative;
+                                text-transform: uppercase;
+                                @include respond-to(below-ipad) {
+                                    padding: 0.7rem 1rem 0.7rem 1rem;
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                        // tabs styles
+                        .block-common {
+                            &.pt-5 {
+                                @include respond-to(below-ipad) {
+                                    padding-top: 2rem !important;
+                                }
+                            }
+                            &.mt-5 {
+                                @include respond-to(below-ipad) {
+                                    margin-top: 2rem !important;
+                                }
+                            }
+                            h5 {
+                                &.text-primay-green {
+                                    font-size: 22px;
+                                    font-weight: bold;
+                                    @include respond-to(below-ipad) {
+                                        font-size: 20px;
+                                        margin-bottom: .5rem;
+                                    }
+                                }
+                            }
+                            //gray panels
+                            .gray-panels {
+                                .content-holder {
+                                    background: $card-gray;
+                                    padding: 1.1rem 2rem;
+                                    @include respond-to(below-ipad) {
+                                        padding: 1rem;
+                                    }
+                                    //font setting
+                                    h5 {
+                                        color: $tab-primary;
+                                        font-size: 17px;
+                                        font-weight: 500;
+                                        margin-bottom: .5rem;
+                                        &.heading_modifier {
+                                            font-size: 20px;
+                                            font-weight: bold;
+                                        }
+                                    }
+                                }
+                                .row {
+                                    @include respond-to(boot-ipad-pro) {
+                                        .col-lg-6+.col-lg-6 {
+                                            margin-top: 1rem;
+                                        }
+                                    }
+                                }
+                            }
+                            //font settings
+                            h6 {
+                                font-size: 16px;
+                                font-weight: 500;
+                                &.f-bold {
+                                    color: $tab-primary;
+                                }
+                            }
+                            //accordion
+                            .accordion-wrapper.consumer-accordion {
+                                button.accordion {
+                                    font-weight: 600;
+                                    @include respond-to(below-ipad) {
+                                        padding-right: 0;
+                                        line-height: 1.2;
+                                    }
+                                }
+                                div.panel {
+                                    border-bottom: 1px solid $tab-primary;
+                                }
+                            }
+                            //common style for circular pills
+                            ul.circular-pills {
+                                display: flex;
+                                justify-content: center;
+                                @include respond-to(below-large-screens) {
+                                    height: calc(125px + 39px);
+                                }
+                                button.slick-arrow {
+                                    @include respond-to(below-large-screens) {
+                                        display: block;
+                                        position: absolute;
+                                        top: 0;
+                                        bottom: 35px;
+                                        width: 50%;
+                                        z-index: 555;
+                                        opacity: 0;
+                                    }
+                                    &.slick-next {
+                                        @include respond-to(below-large-screens) {
+                                            right: 0;
+                                        }
+                                    }
+                                    &.slick-prev {
+                                        @include respond-to(below-large-screens) {
+                                            left: 0;
+                                        }
+                                    }
+                                }
+                                &.justify-flex-start {
+                                    justify-content: flex-start;
+                                    &+div.circular-pills-tab-content {
+                                        &>div {
+                                            @include respond-to(above-large-screens) {
+                                                margin-left: 0;
+                                            }
+                                        }
+                                    }
+                                }
+                                div.slick-track {
+                                    display: flex;
+                                    width: auto !important;
+                                }
+                                li {
+                                    @include respond-to(mobile) {
+                                        margin-left: 5px;
+                                        margin-right: 5px;
+                                    }
+                                    @include respond-to(med-ipad) {
+                                        margin-left: 2px;
+                                        margin-right: 2px;
+                                    }
+                                    &.slick-slide {
+                                        margin-left: 10px;
+                                        margin-right: 10px;
+                                    }
+                                    a {
+                                        width: 125px;
+                                        height: 125px;
+                                        margin: 5px;
+                                        background: $tab-primary;
+                                        border-radius: 100%;
+                                        display: flex;
+                                        justify-content: flex-start;
+                                        align-items: center;
+                                        color: $white;
+                                        text-align: center;
+                                        text-transform: capitalize;
+                                        position: relative;
+                                        flex-direction: column;
+                                        transition: .2s all ease;
+                                        font-weight: 500;
+                                        font-size: 14px;
+                                        @include respond-to(med-screen-handler) {
+                                            width: 104px;
+                                            height: 104px;
+                                            padding-left: 4px;
+                                            padding-right: 4px;
+                                            margin: 2px;
+                                        }
+                                        @include respond-to(below-ipad) {
+                                            margin: auto;
+                                        }
+                                        @include respond-to(med-ipad) {
+                                            width: 120px;
+                                            height: 120px;
+                                        }
+                                        &.active {
+                                            background: $tab-secondary;
+                                            color: $tab-primary;
+                                            div {
+                                                img {
+                                                    opacity: 0;
+                                                    &.active_icon {
+                                                        opacity: 1 !important;
+                                                    }
+                                                }
+                                            }
+                                            &::after {
+                                                content: '';
+                                                background: url('#{$src}/img/dotted_tab_active.png');
+                                                background-repeat: no-repeat;
+                                                background-position: center center;
+                                                background-size: 100%;
+                                                position: absolute;
+                                                bottom: -35px;
+                                                left: 50%;
+                                                transform: translateX(-50%);
+                                                width: 9px;
+                                                height: 39px;
+                                            }
+                                        }
+                                        div {
+                                            padding-top: 1rem;
+                                            line-height: 1.2;
+                                            position: relative;
+                                            display: block;
+                                            width: 100%;
+                                            @include respond-to(med-screen-handler) {
+                                                padding-top: 0rem;
+                                            }
+                                            &>div {
+                                                padding-top: 0;
+                                                img {
+                                                    display: block;
+                                                    margin: auto;
+                                                    margin-bottom: .5rem;
+                                                    transition: .2s all ease;
+                                                    &.active_icon {
+                                                        opacity: 0;
+                                                        position: absolute;
+                                                        top: 50%;
+                                                        left: 50%;
+                                                        transform: translate(-50%, -50%);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            .circular-pills-tab-content {
+                                div.tab-pane {
+                                    background: $tab-secondary;
+                                    border-radius: 100px;
+                                    color: $tab-primary;
+                                    padding: 1.5rem 2.5rem;
+                                    margin-top: 1.5rem;
+                                    @include respond-to(below-large-screens) {
+                                        margin-top: 0;
+                                        padding: 1rem 1.5rem;
+                                        border-radius: 50px;
+                                    }
+                                }
+                                .circular-pill-content-wrapper {
+                                    align-items: center;
+                                    &.pt-2 {
+                                        @include respond-to(below-ipad) {
+                                            padding-top: 0 !important;
+                                        }
+                                    }
+                                    @include respond-to(below-ipad) {
+                                        position: relative;
+                                        align-items: flex-start;
+                                    }
+                                    .pill-close {
+                                        width: 6%;
+                                        text-align: right;
+                                        @include respond-to(below-ipad) {
+                                            position: absolute;
+                                            top: 0;
+                                            right: 0;
+                                        }
+                                        a {
+                                            color: $tab-primary;
+                                            text-decoration: none;
+                                            font-weight: bold;
+                                        }
+                                    }
+                                }
+                                .two-cols {
+                                    display: flex;
+                                    flex-direction: row;
+                                    flex-wrap: nowrap;
+                                    .right-contet-wrapper {
+                                        padding-left: 2rem;
+                                        width: 100%;
+                                        @include respond-to(below-large-screens) {
+                                            padding-left: .8rem;
+                                        }
+                                        h4 {
+                                            @include respond-to(below-ipad) {
+                                                font-size: 16px;
+                                            }
+                                        }
+                                        p {
+                                            @include respond-to(below-ipad) {
+                                                font-size: 15px;
+                                            }
+                                        }
+                                        &.col-styler {
+                                            display: flex;
+                                            flex-direction: column;
+                                            flex: 1 1 100%;
+                                            div.styler-wrapper-2 {
+                                                display: flex;
+                                                justify-content: space-between;
+                                                @include respond-to(below-ipad) {
+                                                    flex-direction: column;
+                                                }
+                                                &>div {
+                                                    flex-basis: 48%;
+                                                }
+                                            }
+                                            div.styler-wrapper-3 {
+                                                display: flex;
+                                                justify-content: space-between;
+                                                @include respond-to(below-ipad) {
+                                                    flex-direction: column;
+                                                }
+                                                &>div {
+                                                    flex-basis: 31%;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            //common style for tabable block
+                            &.tabable-block {
+                                &.social_consumer_tabs {
+                                    @include respond-to(below-large-screens) {
+                                        padding-top: 0 !important;
+                                    }
+                                    h5.mb-5 {
+                                        @include respond-to(below-large-screens) {
+                                            margin-bottom: 0rem !important;
+                                        }
+                                    }
+                                }
+                                .nav-tabs {
+                                    border: 0;
+                                    .nav-item {
+                                        a {
+                                            text-align: center;
+                                            border: 0;
+                                            font-weight: 600;
+                                        }
+                                    }
+                                }
+                                &.without_accordion {
+                                    .nav-item {
+                                        a {
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                            img {
+                                                margin-right: .3rem;
+                                                max-height: 15px;
+                                            }
+                                        }
+                                    }
+                                }
+                                .tab-content {
+                                    .common-pane {
+                                        border-radius: $tab-radius;
+                                        padding: 2.5rem;
+                                        position: relative;
+                                        @include respond-to(below-large-screens) {
+                                            padding: 1rem;
+                                        }
+                                        &.social-common_pane {
+                                            @include respond-to(below-large-screens) {
+                                                padding-top: 0rem;
+                                                padding-bottom: .6rem;
+                                                border-radius: 0;
+                                                border-top-left-radius: 15px;
+                                                border: 0;
+                                                border-top-right-radius: 15px;
+                                            }
+                                            &:last-of-type {
+                                                @include respond-to(below-large-screens) {
+                                                    border-radius: 15px;
+                                                    padding-bottom: 0;
+                                                }
+                                            }
+                                            &+.social-common_pane {
+                                                @include respond-to(below-large-screens) {}
+                                            }
+                                        }
+                                        .tab-pane-inner-wrapper {
+                                            background: $white;
+                                            padding: 1rem .7rem;
+                                            border-radius: $tab-radius;
+                                            @include respond-to(below-large-screens) {
+                                                padding: 1.5rem;
+                                            }
+                                            @include respond-to(below-ipad) {
+                                                padding: 1rem;
+                                            }
+                                            .tab-content-block {
+                                                &.mt-5 {
+                                                    @include respond-to(below-ipad) {
+                                                        margin-top: 1.5rem !important;
+                                                    }
+                                                }
+                                                //font style
+                                                h3 {
+                                                    font-weight: bold;
+                                                    font-size: 22px;
+                                                    @include respond-to(below-ipad) {
+                                                        font-size: 17px;
+                                                    }
+                                                    &.text-primay-green {
+                                                        font-size: 22px;
+                                                        font-weight: bold;
+                                                        @include respond-to(below-ipad) {
+                                                            font-size: 20px;
+                                                        }
+                                                    }
+                                                }
+                                                &.two-cols {
+                                                    display: flex;
+                                                    flex-direction: row;
+                                                    flex-wrap: nowrap;
+                                                    @include respond-to(below-large-screens) {
+                                                        flex-direction: column;
+                                                    }
+                                                    .left-col {
+                                                        flex-basis: 70%;
+                                                        ul {
+                                                            li {
+                                                                @include respond-to(below-ipad) {
+                                                                    color: $tab-primary;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    .right-col {
+                                                        flex-basis: 30%;
+                                                        min-width: 250px;
+                                                        @include respond-to(below-large-screens) {
+                                                            flex-basis: 100%;
+                                                        }
+                                                        @include respond-to(above-large-screens) {
+                                                            min-height: 450px;
+                                                        }
+                                                        .right-col-content {
+                                                            position: absolute;
+                                                            right: 1.5rem;
+                                                            img {
+                                                                @include respond-to(below-large-screens) {
+                                                                    display: block;
+                                                                    margin-left: auto;
+                                                                    margin-right: auto;
+                                                                    margin-top: 1.5rem;
+                                                                }
+                                                                @include respond-to(below-ipad) {
+                                                                    max-width: 250px;
+                                                                    width: 100%;
+                                                                }
+                                                            }
+                                                            @include respond-to(below-large-screens) {
+                                                                position: relative;
+                                                                right: 0;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                @import './consumer-tabable';
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            @import './healthcare-tabs';
+                            @import './consumer-tabs';
+                            //common styling
+                            &.three-cols {
+                                display: flex;
+                                flex-direction: row;
+                                flex-wrap: nowrap;
+                                justify-content: space-between;
+                                @include respond-to(below-large-screens) {
+                                    flex-direction: column;
+                                }
+                                &>div {
+                                    flex-basis: 27%;
+                                    &+div {
+                                        @include respond-to(below-large-screens) {
+                                            margin-top: 2rem;
+                                        }
+                                    }
+                                    p,
+                                    ul,
+                                    li {
+                                        color: $tab-primary;
+                                    }
+                                    .top-header-media {
+                                        margin-bottom: 1rem;
+                                        img {
+                                            max-width: 90%;
+                                            display: block;
+                                        }
+                                    }
+                                    .mid-media-content {
+                                        border-bottom: 2px solid $primary-green;
+                                        padding-bottom: 1.5rem;
+                                        //font style
+                                        h4 {
+                                            color: $tab-primary;
+                                            font-size: 16px;
+                                            font-weight: bold;
+                                        }
+                                    }
+                                    .bot-media-footer {
+                                        p,
+                                        ul,
+                                        li {
+                                            color: #662046;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.sidebar-wrapper {
+    .sidebar-content-inner {
+        background: url('#{$src}/img/hcps_overlay.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right;
+        height: 100vh;
+        //sidebar image for healthcare page
+        @include respond-to(below-ipad) {
+            height: auto;
+            background-position: right center;
+            background-image: url('#{$src}/img/hcp_large_landscape.jpg');
+        }
+        &.consumer_bg {
+            background-image: url('#{$src}/img/patients_overlay.png');
+            @include respond-to(below-ipad) {
+                height: auto;
+                background-position: right top;
+                background-image: url('#{$src}/img/patients_overlay_landscape.jpg');
+            }
+        }
+        .sidebar-container {
+            max-width: 80%;
+            margin: auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            min-height: 320px;
+            @include respond-to(below-ipad) {
+                min-height: initial;
+                padding-bottom: 3rem;
+                justify-content: flex-start;
+                max-width: 90%;
+            }
+            .sidebar-bottom-content {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                h4 {
+                    font-weight: bold;
+                    @include respond-to(below-ipad) {
+                        font-size: 20px;
+                    }
+                }
+                p {
+                    font-weight: normal;
+                }
+            }
+            img.logo {
+                max-width: 200px;
+                @include respond-to(below-ipad) {
+                    margin-bottom: 1.9rem;
+                    max-width: 140px;
+                }
+            }
+            .sidebar-tab-container {
+                background: $primary-green;
+                padding: 0;
+                position: absolute;
+                bottom: 0;
+                right: -20px;
+                min-width: 330px;
+                &>a.tab-page-link {
+                    background: $tab-primary;
+                    color: white;
+                    text-decoration: none;
+                    padding-left: 2rem;
+                    padding-right: 2rem;
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    padding-top: .5rem;
+                    padding-bottom: .5rem;
+                    font-weight: bold;
+                    @include respond-to(below-ipad) {
+                        position: fixed;
+                        bottom: 0;
+                        left: 0;
+                        right: 0;
+                        z-index: 777;
+                        width: 90%;
+                        margin: auto;
+                    }
+                }
+                .custom-sidebar-tabs {
+                    padding: .6rem 2rem 0rem 2rem;
+                    border: 0;
+                    li {
+                        a {
+                            color: $white;
+                            background: none;
+                            border: none;
+                            border-top: 1px solid $white;
+                            border-radius: 0px;
+                            text-transform: uppercase;
+                            padding: .5rem 0rem;
+                            font-weight: 600;
+                            display: flex;
+                            justify-content: space-between;
+                            flex-direction: row;
+                            flex-wrap: nowrap;
+                            align-items: center;
+                            div {
+                                max-width: 220px;
+                            }
+                            img {
+                                opacity: 0;
+                                transition: .2s all ease;
+                            }
+                            &.active,
+                            &:hover,
+                            &:focus {
+                                color: $primary-yellow;
+                                background: none;
+                                border: none;
+                                border-top: 1px solid $white;
+                                border-radius: 0px;
+                            }
+                            &.active {
+                                img {
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                        &:first-of-type {
+                            a {
+                                border: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// tabs to accordion
+.custom-sidebar-tabs:not(.b-1100) {
+    display: none;
+}
+
+//min width: 767px
+@media(min-width:$for-phones-landscape) {
+    .custom-sidebar-tabs:not(.b-1100) {
+        display: flex;
+    }
+    .card:not(.b-1100) {
+        border: none;
+    }
+    .card .card-header:not(.b-1100) {
+        display: none;
+    }
+    .card .collapse:not(.b-1100) {
+        display: block;
+    }
+}
+
+//max-width: 767px
+@media(max-width:$for-phones-landscape) {
+    .tab-content.b-1100>.tab-pane.card {
+        display: block !important;
+        opacity: 1;
+    }
+}
+
+// for social media tabs
+.custom-sidebar-tabs.b-1100 {
+    display: none;
+}
+
+//min width: 1100px
+@media(min-width:$for-medium-desktop+1) {
+    .custom-sidebar-tabs.b-1100 {
+        display: flex;
+    }
+    .card.b-1100 {
+        border: none;
+    }
+    .card.b-1100 .card-header {
+        display: none;
+    }
+    .card.b-1100 .collapse {
+        display: block;
+    }
+}
+
+//max-width: 1100px
+@media(max-width:$for-medium-desktop+1) {
+    .tab-content.b-1100>.tab-pane.card {
+        display: block !important;
+        opacity: 1;
+    }
+}

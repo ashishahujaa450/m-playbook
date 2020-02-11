@@ -1,0 +1,14 @@
+//run sass command
+//sass -w scss/main.scss:css/main.css --style expanded
+
+/* global */
+
+@import 'base';
+@import 'fonts';
+@import 'media-queries';
+@import 'utility';
+
+/* pages */
+
+@import './pages/index';
+@import './pages/healthcare';

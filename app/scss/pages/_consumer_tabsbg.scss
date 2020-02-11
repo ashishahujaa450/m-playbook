@@ -1,0 +1,36 @@
+&.consumer-page {
+    #content {
+        &>div.tab-pane.card {
+            background-image: url('#{$src}/img/illustration_tab.png') !important;
+            background-repeat: no-repeat !important;
+            min-height: 100vh;
+            @include respond-to(below-large-screens) {
+                min-height: auto;
+                background-image: none !important;
+            }
+        }
+        &>div#pane-A {
+            background-image: none !important;
+        }
+        &>div#pane-B {
+            background-size: 700px;
+            background-position: calc(100% + 356px) 0px;
+        }
+        &>div#pane-C {
+            background-image: none !important;
+        }
+        &>div#pane-D {
+            background-size: 808px;
+            background-position: calc(100% + 423px) center;
+        }
+        &>div#pane-E {
+            background-size: 600px;
+            background-position: calc(100% + 300px) center;
+        }
+        &>div#pane-F,
+        &>div#pane-G {
+            background-size: 816px;
+            background-position: calc(100% + 423px) center;
+        }
+    }
+}

@@ -1,0 +1,71 @@
+.row {
+    @include respond-to(boot-ipad-pro) {
+        .col-lg-6+.col-lg-6 .tabable-content-holder {
+            margin-top: 2.5rem;
+        }
+    }
+}
+
+.tabable-content-holder {
+    .common-tabable-heading {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding-bottom: 1rem;
+        h4 {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #662046;
+            @include respond-to(below-ipad) {
+                font-size: 18px;
+            }
+        }
+        img {
+            margin-right: 1rem;
+            @include respond-to(below-ipad) {
+                margin-right: .5rem;
+            }
+        }
+    }
+    .consumer-list-group {
+        li {
+            background: $tab-shade1;
+            border: 0;
+            border-radius: 25px;
+            padding: .50rem 1.25rem .50rem 3rem;
+            font-weight: 600;
+            @include respond-to(below-ipad) {
+                padding: .5rem 1rem .5rem 2rem;
+                line-height: 1.2;
+            }
+            &+li {
+                margin-top: 1rem;
+            }
+        }
+    }
+    &.consumer-audience-content {
+        p {
+            margin-bottom: 0;
+        }
+    }
+    .consumer_tabable_list {
+        padding-left: 1.2rem;
+        @include respond-to(below-large-screens) {
+            padding-left: .5rem;
+        }
+        li {
+            padding-left: 2.2rem;
+            @include respond-to(below-large-screens) {
+                padding-left: 1.2rem;
+            }
+        }
+    }
+}
+
+.left_space_modifier {
+    padding-left: 60px;
+    @include respond-to(below-large-screens) {
+        padding-left: 0;
+    }
+}

@@ -1,0 +1,42 @@
+&.healthcare-page {
+    #content {
+        &>div.tab-pane.card {
+            background-image: url('#{$src}/img/illustration_tab.png') !important;
+            background-repeat: no-repeat !important;
+            min-height: 100vh;
+            @include respond-to(below-large-screens) {
+                min-height: auto;
+                background-image: none !important;
+            }
+        }
+        &>div#pane-A {
+            background-size: 640px;
+            background-position: calc(100% + 170px) -208px;
+        }
+        &>div#pane-B {
+            background-size: 600px;
+            background-position: calc(100% + 182px) 0px;
+        }
+        &>div#pane-C {
+            background-image: none !important;
+            .card-body {
+                @include respond-to(below-ipad) {
+                    padding-left: 30px;
+                    padding-right: 30px;
+                }
+            }
+        }
+        &>div#pane-D {
+            background-size: 600px;
+            background-position: calc(100% + 196px) center;
+        }
+        &>div#pane-E {
+            background-size: 707px;
+            background-position: calc(100% + 352px) center;
+        }
+        &>div#pane-F {
+            background-size: 816px;
+            background-position: calc(100% + 404px) center;
+        }
+    }
+}
